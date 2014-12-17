@@ -64,7 +64,7 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 9005,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '*',
         livereload: 35729,
@@ -74,7 +74,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: 'http://localhost:9000',
+          open: 'http://localhost:9005',
           base: [
             '.tmp',
             '<%= yeoman.app %>'
