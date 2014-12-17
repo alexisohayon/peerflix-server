@@ -6,12 +6,14 @@ angular.module('peerflixServerApp')
 
     function load() {
       var torrents = Torrent.query(function () {
+        console.log(torrents);
         $scope.torrents = torrents;
       });
     }
 
     function loadTorrent(hash) {
       return Torrent.get({ infoHash: hash }).$promise.then(function (torrent) {
+        console.log($scope.torrents);
         var existing = _.find($scope.torrents, { infoHash: hash });
         if (existing) {
           var index = $scope.torrents.indexOf(existing);
@@ -65,6 +67,7 @@ angular.module('peerflixServerApp')
     });
 
     torrentSocket.on('ready', function (hash) {
+      console.log('torrent socket ready');
       loadTorrent(hash);
     });
 
